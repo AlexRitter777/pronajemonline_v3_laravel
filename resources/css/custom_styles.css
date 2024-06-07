@@ -1,0 +1,37 @@
+.was-validated .form-control:valid{
+    border-color: #f3f3f3!important;
+}
+
+.is-invalid-custom {
+    border-color: #dc3545!important;
+}
+
+/*.navbar-brand img {
+    height: 35px!important;
+    width: 35px!important;
+}*/
+
+.dropdown-toggle:after {
+    content: unset!important;
+}
+
+.form-control {
+    border-color: #e3e3e3;
+}
+
+.sidebar {
+    border-left: 1px solid #e3e3e3
+}
+
+
+
+@media (max-width: 320px) { /* Small devices (landscape phones, 576px and up) */
+    .lh-xs-1 {
+        line-height: 1 !important;
+    }
+
+    .btn {
+        padding: .75rem 0.75rem;
+    }
+
+}
