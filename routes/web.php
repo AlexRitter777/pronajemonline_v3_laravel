@@ -9,7 +9,7 @@ Route::get('/', function () {
 });
 
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/user/dashboard', [DashboardController::class, 'index']) ->name('account.dashboard');
     Route::get('user/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('user/profile', [ProfileController::class, 'update'])->name('profile.update');

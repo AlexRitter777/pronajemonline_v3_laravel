@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Rules\DifferentFromOldPassword;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rules\Password;
 
@@ -22,9 +23,9 @@ class AppServiceProvider extends ServiceProvider
     {
         Password::defaults(function () {
             return Password::min(8)
-                ->mixedCase();
+                ->mixedCase()
                 //->uncompromised()
-                //->rules('different:password');
+                ->rules(new DifferentFromOldPassword);
         });
     }
 }

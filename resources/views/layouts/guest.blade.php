@@ -11,10 +11,14 @@
     </head>
 
     <body class="font-sans text-gray-900 antialiased">
-    <div class="container-scroller">
+        <div class="container-scroller">
+            <div class="container-fluid page-body-wrapper full-page-wrapper">
+                <div class="content-wrapper content-wrapper-background d-flex align-items-center auth px-0">
 
-            @yield('auth-content')
-    </div>
+                @yield('auth-content')
 
+                </div>
+            <div>
+        </div>
     </body>
 </html>

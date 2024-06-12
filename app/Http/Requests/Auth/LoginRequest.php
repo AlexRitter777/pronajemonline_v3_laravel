@@ -44,13 +44,6 @@ class LoginRequest extends FormRequest
         ];
     }
 
-    //Temporary in this class!!!
-    public function messages()
-    {
-        return [
-            'g-recaptcha-response.required' => 'Missing reCAPTCHA token. Please try again!',
-        ];
-    }
 
     /**
      * Perform post-validation actions.
@@ -82,7 +75,7 @@ class LoginRequest extends FormRequest
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
-                'password' => trans('auth.failed'),
+                'password' => trans('auth.password'),
             ]);
         }
         //clean login attempts counter

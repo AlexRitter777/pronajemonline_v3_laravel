@@ -1,22 +1,21 @@
 @extends('layouts.guest')
 
 @section('auth-content')
-    <div class="container-fluid page-body-wrapper full-page-wrapper">
-        <div class="content-wrapper d-flex align-items-center auth px-0">
-            <div class="row w-100 mx-0">
-                <div class="col-lg-4 mx-auto">
+
+            <div class="row see-content-on-background w-100 mx-0">
+                <div class="auth-content-panel mx-auto">
                     <div class="auth-form-light text-left py-5 px-4 px-sm-5">
-                        {{--<div class="brand-logo">
-                            <img src="../../assets/images/logo.svg" alt="logo">
-                        </div>--}}
+                        <div class="brand-logo d-flex align-items-center">
+                            <img class="logo-image" src="{{ Vite::asset('resources/images/keys.png') }}" alt="logo">
+                            <h2 class="ps-3 logo-title">Pronajemonline.cz</h2>
+                        </div>
                         <h4 class="text-uppercase text-center">Zapomenuté heslo</h4>
-                        {{--<h6 class="font-weight-light">Sign in to continue.</h6>--}}
 
                         <form method="POST" action="{{ route('password.email') }}" class="pt-3 needs-validation" novalidate>
                             @csrf
 
                             <div class="form-group input-group has-validation">
-                                <input type="email" class="form-control form-control-lg initialColorValidation @if($errors->first('email')) is-invalid-custom @endif" id="validationCustomEmail" name="email" value="{{ old('email') }}" required placeholder="E-mail" aria-describedby="inputGroupPrepend">
+                                <input type="email" class="form-control form-control-sm initialColorValidation @if($errors->first('email')) is-invalid-custom @endif" id="validationCustomEmail" name="email" value="{{ old('email') }}" required placeholder="E-mail" aria-describedby="inputGroupPrepend">
                                 <div class="invalid-feedback">
                                     Zadejte prosím email.
                                 </div>
@@ -26,8 +25,8 @@
 
                             @include('components.success-status')
 
-                            <div class="mt-3 d-grid gap-2">
-                                <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" >
+                            <div class="mt-3">
+                                <button type="submit" class="btn btn-primary btn-sm font-weight-medium" >
                                     ODESLAT NA EMAIL
                                 </button>
                             </div>
@@ -35,8 +34,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+
 
 
 
