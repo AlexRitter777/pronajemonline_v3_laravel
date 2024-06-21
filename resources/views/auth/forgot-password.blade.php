@@ -7,9 +7,9 @@
                     <div class="auth-form-light text-left py-5 px-4 px-sm-5">
                         <div class="brand-logo d-flex align-items-center">
                             <img class="logo-image" src="{{ Vite::asset('resources/images/keys.png') }}" alt="logo">
-                            <h2 class="ps-3 logo-title">Pronajemonline.cz</h2>
+                            <h2 class="ps-3 logo-title">{{ config('app.name') }}</h2>
                         </div>
-                        <h4 class="text-uppercase text-center">Zapomenuté heslo</h4>
+                        <h4 class="text-uppercase text-center">{{ __('Forgot password') }}</h4>
 
                         <form method="POST" action="{{ route('password.email') }}" class="pt-3 needs-validation" novalidate>
                             @csrf
@@ -17,7 +17,7 @@
                             <div class="form-group input-group has-validation">
                                 <input type="email" class="form-control form-control-sm initialColorValidation @if($errors->first('email')) is-invalid-custom @endif" id="validationCustomEmail" name="email" value="{{ old('email') }}" required placeholder="E-mail" aria-describedby="inputGroupPrepend">
                                 <div class="invalid-feedback">
-                                    Zadejte prosím email.
+                                    {{ __('Enter your email address.') }}
                                 </div>
                             </div>
 
@@ -26,16 +26,14 @@
                             @include('components.success-status')
 
                             <div class="mt-3">
-                                <button type="submit" class="btn btn-primary btn-sm font-weight-medium" >
-                                    ODESLAT NA EMAIL
+                                <button type="submit" class="btn btn-primary btn-sm font-weight-medium text-uppercase" >
+                                    {{ __('Send to email') }}
                                 </button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-
-
 
 
 @endsection

@@ -18,6 +18,7 @@ return [
     'throttled' => 'Počkejte prosím, než to zkusíte znovu.',
     'token' => 'Tento token pro resetování hesla je neplatný nebo vypršel.',
     'user' => "Nepodařilo se najít uživatele s touto e-mailovou adresou.",
-    "old" => "Nové heslo nesmí být stejné jako stávající heslo."
+    'old' => "Nové heslo nesmí být stejné jako stávající heslo.",
+    'updated' => "Vaše heslo bylo úspěšně změněno."
 
 ];

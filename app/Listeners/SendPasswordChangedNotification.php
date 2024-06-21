@@ -2,9 +2,9 @@
 
 namespace App\Listeners;
 
-use App\Mail\PasswordResetConfirmationEmail;
+
+use App\Notifications\PasswordHasBeenResetNotification;
 use Illuminate\Auth\Events\PasswordReset;
-use Illuminate\Support\Facades\Mail;
 
 class SendPasswordChangedNotification
 {
@@ -24,8 +24,9 @@ class SendPasswordChangedNotification
 
         $user = $event->user;
 
-        Mail::to($user)
-            ->send(new PasswordResetConfirmationEmail());
+
+        $user->notify(new PasswordHasBeenResetNotification());
+
 
     }
 

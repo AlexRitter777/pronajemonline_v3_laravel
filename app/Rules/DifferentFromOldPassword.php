@@ -19,10 +19,15 @@ class DifferentFromOldPassword implements ValidationRule
         //get User
         $user = Auth::user();
 
-        if ($value == Hash::check($value, $user->password)) {
+        if($user){
+            if ($value == Hash::check($value, $user->password)) {
 
-            $fail('passwords.old')->translate();
+                $fail('passwords.old')->translate();
+            }
+
         }
+
+
 
 
     }

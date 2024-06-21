@@ -2,11 +2,43 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
+use App\Models\User;
+use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/notification/welcome', function () {
+    $user = User::find(1);
+    return (new \App\Notifications\NewUserGreetingNotification())
+        ->toMail($user);
+});
+
+
+Route::get('/notification/confirm', function () {
+    $user = User::find(1);
+    return (new \App\Notifications\PasswordHasBeenResetNotification())
+        ->toMail($user);
+});
+
+Route::get('/notification/reset', function () {
+
+    $user = User::find(1);
+    $token = Password::getRepository()->create($user);
+    return (new \App\Notifications\MailResetPasswordToken($token))
+        ->toMail($user);
+});
+
+Route::get('/notification/verify', function () {
+
+    $user = User::find(1);
+
+    return (new \App\Notifications\MailVerificationLink())
+        ->toMail($user);
+});
+
 
 
 Route::middleware(['auth', 'verified'])->group(function () {
@@ -17,3 +49,4 @@ Route::middleware(['auth', 'verified'])->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
