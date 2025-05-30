@@ -5,10 +5,7 @@
         <div class="row see-content-on-background w-100 mx-0">
             <div class="auth-content-panel mx-auto">
                 <div class="auth-form-light text-left py-5 px-4 px-sm-5">
-                    <div class="brand-logo d-flex align-items-center">
-                        <img class="logo-image" src="{{ Vite::asset('resources/images/keys.png') }}" alt="logo">
-                        <h2 class="ps-3 logo-title">{{ config('app.name') }}</h2>
-                    </div>
+                    @include('components.auth-form-header')
                     <h4 class="text-uppercase text-center">{{ __('Reset password') }}</h4>
 
                     <form method="POST" action="{{ route('password.store') }}" class="pt-3 needs-validation" novalidate>
